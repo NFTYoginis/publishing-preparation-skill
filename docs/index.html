@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publishing Preparation — Print-Ready Files, Not Invented Layout</title>
+<meta name="description" content="Two independently-built pipelines, proven across five shipped books, turn a finished manuscript into a trim-sized print PDF, EPUB, DOCX, and Markdown master — without ever touching the prose.">
+<meta property="og:title" content="Publishing Preparation">
+<meta property="og:description" content="Two proven pipelines. Five shipped books. A print-ready package, not a theory of layout.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:type" content="website">
+<style>
+  :root {
+    --paper: #f6f4ee;
+    --ink: #1b1e22;
+    --muted: #61646c;
+    --cyan: #0e7c86;
+    --surface: #edf1ee;
+    --border: #dde1da;
+    --press: #b5442e;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(246,244,238,0.96);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(4px);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; }
+  .brand { font-weight: 700; font-size: 1.05rem; color: var(--ink); text-decoration: none; letter-spacing: -0.01em; }
+  .brand span { color: var(--cyan); }
+  .navlinks { display: flex; gap: 24px; align-items: center; }
+  .navlinks a { color: var(--muted); text-decoration: none; font-size: 0.95rem; }
+  .navlinks a:hover { color: var(--cyan); }
+  .btn {
+    display: inline-block; padding: 10px 20px; border-radius: 6px;
+    font-weight: 600; text-decoration: none; font-size: 0.95rem;
+    border: 1px solid transparent; cursor: pointer;
+  }
+  .btn-primary { background: var(--cyan); color: #fff; }
+  .btn-primary:hover { background: #0b636b; }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--border); }
+  .btn-ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+  header.hero { padding: 96px 0 72px; text-align: center; }
+  .kicker {
+    display: inline-block; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--press); border: 1px solid var(--press);
+    border-radius: 20px; padding: 4px 14px; margin-bottom: 24px;
+  }
+  header.hero h1 { font-size: 2.6rem; line-height: 1.2; margin: 0 0 20px; max-width: 780px; margin-left: auto; margin-right: auto; }
+  header.hero p.sub { font-size: 1.2rem; color: var(--muted); max-width: 640px; margin: 0 auto 36px; }
+  .hero-ctas { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  section h2 { font-size: 1.8rem; margin-bottom: 8px; }
+  section p.lead { color: var(--muted); max-width: 700px; margin-bottom: 40px; }
+  .pipeline-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+  .pipeline-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 28px; position: relative;
+  }
+  .pipeline-card .tag {
+    display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em;
+    text-transform: uppercase; color: var(--cyan); margin-bottom: 10px;
+  }
+  .pipeline-card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+  .pipeline-card p { color: var(--muted); font-size: 0.95rem; margin: 0 0 14px; }
+  .pipeline-card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: 0.9rem; }
+  .pipeline-card li { margin-bottom: 4px; }
+  .gotcha {
+    background: #fff; border: 1px solid var(--press); border-left: 4px solid var(--press);
+    border-radius: 8px; padding: 24px 28px; margin-top: 32px;
+  }
+  .gotcha .tag { color: var(--press); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+  .gotcha p { margin: 10px 0 0; color: var(--ink); }
+  .gotcha code { background: var(--surface); padding: 1px 6px; border-radius: 4px; font-size: 0.9em; }
+  .output-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin-top: 8px; }
+  .output-tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 16px; text-align: center; font-size: 0.9rem; color: var(--ink); font-weight: 600;
+  }
+  .output-tile span { display: block; font-weight: 400; color: var(--muted); font-size: 0.8rem; margin-top: 4px; }
+  .sample-table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+  .sample-table th, .sample-table td {
+    text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); font-size: 0.9rem; vertical-align: top;
+  }
+  .sample-table th { color: var(--muted); font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .proof-block {
+    background: var(--surface); border: 1px dashed var(--border); border-radius: 10px;
+    padding: 40px; text-align: center; color: var(--muted);
+  }
+  ol.setup-steps { padding-left: 20px; }
+  ol.setup-steps li { margin-bottom: 14px; }
+  .faq-item { margin-bottom: 28px; }
+  .faq-item h3 { font-size: 1.05rem; margin: 0 0 8px; }
+  .faq-item p { color: var(--muted); margin: 0; }
+  footer { padding: 48px 0; border-top: 1px solid var(--border); text-align: center; color: var(--muted); font-size: 0.9rem; }
+  footer a { color: var(--cyan); text-decoration: none; }
+  @media (max-width: 640px) {
+    .navlinks { display: none; }
+    header.hero h1 { font-size: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Publishing<span>Prep</span></a>
+    <div class="navlinks">
+      <a href="#pipelines">Pipelines</a>
+      <a href="#outputs">Outputs</a>
+      <a href="#samples">Samples</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#setup">Get started</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="kicker">Layout, not content</span>
+    <h1>Turn a finished manuscript into a print-ready file — without touching a single sentence.</h1>
+    <p class="sub">Two independently-built pipelines, proven across five shipped books, produce the trim-sized print PDF, EPUB, DOCX, and Markdown master a publishing channel actually requires. Nothing theoretical — this is a repeat of what already worked, twice.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="#pipelines">See the two pipelines</a>
+      <a class="btn btn-ghost" href="https://github.com/NFTYoginis/publishing-preparation-skill">View on GitHub</a>
+    </div>
+  </div>
+</header>
+
+<section id="pipelines">
+  <div class="wrap">
+    <h2>Two pipelines. Neither invented for this.</h2>
+    <p class="lead">Both were built independently, for the same problem, by sessions that didn't know the other existed. Which one applies depends entirely on what already exists for the book.</p>
+    <div class="pipeline-grid">
+      <div class="pipeline-card">
+        <span class="tag">When there's fresh markdown, no template yet</span>
+        <h3>CSS Paged Media</h3>
+        <p>A build script parses markdown chapter source into structured components — chapter, part-opener, pull-quote, callout, reflect-box, timeline, quote-spread — and assembles the final HTML.</p>
+        <ul>
+          <li>6in × 9in trade trim, 0.95in / 1in margins</li>
+          <li>Running heads + page counters via CSS Paged Media <code>@page</code> rules</li>
+          <li>Rendered with <code>pagedjs-cli</code></li>
+        </ul>
+      </div>
+      <div class="pipeline-card">
+        <span class="tag">When a finished book already exists to copy</span>
+        <h3>Structural Template</h3>
+        <p>Copy the finished book's HTML as the new book's structural template, reference the shared stylesheet, replace content, keep every class name intact.</p>
+        <ul>
+          <li>6in × 9in trade trim, outer 1.1in / inner 0.85in margins</li>
+          <li>A documented color-token + typography system</li>
+          <li>Eleven named components, rendered via Chrome print-to-PDF</li>
+        </ul>
+      </div>
+    </div>
+    <div class="gotcha">
+      <span class="tag">The gotcha this skill exists to catch</span>
+      <p><strong>Chrome-headless rendering silently drops running heads and page-number counters.</strong> The page count is right, the content is right, nothing errors — the only way to catch it before a printer does is to know it's there. This specialist renders with <code>pagedjs-cli</code> and names the gotcha every time, never as a footnote.</p>
+    </div>
+  </div>
+</section>
+
+<section id="outputs">
+  <div class="wrap">
+    <h2>One packaging convention, proven on five books</h2>
+    <p class="lead">Every finished book — regardless of which pipeline built it — packages to the same six files, plus a README stating what each one is for.</p>
+    <div class="output-grid">
+      <div class="output-tile">Front Cover<span>PNG</span></div>
+      <div class="output-tile">Back Cover<span>PNG</span></div>
+      <div class="output-tile">Full Book<span>PDF</span></div>
+      <div class="output-tile">E-Retail<span>EPUB</span></div>
+      <div class="output-tile">Kindle Create<span>DOCX</span></div>
+      <div class="output-tile">Stripped Master<span>Markdown</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="samples">
+  <div class="wrap">
+    <h2>Sample output — the two margin specs, side by side</h2>
+    <p class="lead">Both pipelines independently landed on 6in × 9in trade trim. Neither converged on the same margins — and this skill doesn't force them to.</p>
+    <table class="sample-table">
+      <tr><th>Spec</th><th>CSS Paged Media</th><th>Structural Template</th></tr>
+      <tr><td>Trim</td><td>6in × 9in</td><td>6in × 9in</td></tr>
+      <tr><td>Top / Bottom</td><td>0.95in / 1in</td><td>1in / 1in</td></tr>
+      <tr><td>Left / Right</td><td>1in / 1in</td><td>outer 1.1in / inner 0.85in</td></tr>
+      <tr><td>Running heads</td><td><code>@page :left</code> / <code>:right</code></td><td>undocumented — verify before assuming</td></tr>
+      <tr><td>Render</td><td><code>pagedjs-cli</code></td><td>Chrome print-to-PDF</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <h2>Books shipped on these pipelines</h2>
+    <div class="proof-block">
+      <!-- TODO: operator — add real titles/covers/links to the five books these pipelines actually shipped, once ready to name them publicly -->
+      Proof of shipped titles goes here — added by the operator, not invented.
+    </div>
+  </div>
+</section>
+
+<section id="setup">
+  <div class="wrap">
+    <h2>Setup</h2>
+    <ol class="setup-steps">
+      <li>Load this folder into a Claude Project, or point a Claude Code session at it — <code>SKILL.md</code> lets it auto-discover and trigger from a natural request.</li>
+      <li>Confirm the manuscript has completed revision passes (that's a different skill's job — this one refuses to lay out anything still mid-revision).</li>
+      <li>Say which situation applies: fresh markdown with no template, or an existing book's HTML to copy.</li>
+      <li>Let the specialist choose the pipeline, lay out the book, and flag any open items (missing title, missing cover file) rather than guessing.</li>
+      <li>Review the packaged six-file output and the retail-technical check before sending anything to a printer or KDP.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <div class="faq-item">
+      <h3>Will it edit my manuscript while laying it out?</h3>
+      <p>No. It never rewrites, trims, or "improves" a sentence — that's a different skill's job entirely. This one lays out finished prose exactly as written.</p>
+    </div>
+    <div class="faq-item">
+      <h3>What if I don't have a locked title yet?</h3>
+      <p>It accepts a clearly marked placeholder and flags it — it doesn't block, and it doesn't write a title for you.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it design book covers?</h3>
+      <p>No. Cover creative direction is a separate, not-yet-built skill. This one places a finished cover file into the package.</p>
+    </div>
+    <div class="faq-item">
+      <h3>Does it handle the ISBN or the KDP upload?</h3>
+      <p>No — it hands off a complete package for the operator to take through the ISBN/upload step. That relationship stays operator-only.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    MIT License · <a href="https://github.com/NFTYoginis/publishing-preparation-skill">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
