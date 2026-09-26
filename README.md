@@ -40,6 +40,8 @@ Full detail per pipeline: `reference/`.
 
 See `identity.md` and `rules.md` for the full contract. In short: it never touches manuscript prose, never invents cover creative direction, never chases an ISBN, and never writes retail-listing copy — it owns trim, margins, running heads, pagination, the component library, and the six-file retail package, using one of two pipelines that already shipped five real books.
 
+Image and extra-format work goes to [Book Format & Interior-Image Integrity](https://github.com/NFTYoginis/book-format-integrity-skill). It takes this package and its source as input and checks that the images inside it, and any other format made from it, carry the same images.
+
 ## Where this fits
 
 The book-production shelf, numbered as in the catalog. The skill in this repo is in bold.

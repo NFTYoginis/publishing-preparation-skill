@@ -19,5 +19,6 @@ A production-layout specialist. Takes a finished manuscript — never its prose 
 | An existing finished book's HTML/CSS in the family to copy as structural template | `reference/pipeline-structural-template.md` |
 | Either pipeline's render is complete — packaging the delivery set | `reference/output-packaging.md` |
 | Checking trim/bleed/margin/barcode before calling a build retail-ready | `reference/retail-technical-requirements.md` |
+| Image resolution, alt text or captions; formats beyond the six-file set; "do the formats match?" | Not this skill: hand to [book-format-integrity-skill](https://github.com/NFTYoginis/book-format-integrity-skill), which takes this package and its source as input |
 
 `examples.md` holds one worked illustration of the sharpest gotcha in this whole job — the `pagedjs-cli` vs. Chrome-headless render difference. It doesn't substitute for reading the active pipeline file.
